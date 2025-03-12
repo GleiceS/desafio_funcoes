@@ -25,9 +25,7 @@ def depositar(saldo, extrato, /):
     return saldo, extrato
 
 
-def sacar(*, saldo, extrato, limite, saques, limite_saques):
-
-    valor = float(input("Por favor, informe o valor para saque: "))
+def sacar(*, saldo, valor, extrato, limite, saques, limite_saques):
 
     if valor > saldo:
         print("\n❌ Saldo insuficiente.")
@@ -122,6 +120,7 @@ def main():
     extrato = []
     saques = 0
     limite_saques = 3
+
     agencia = "0001"
     usuarios = []
     contas = []
@@ -132,16 +131,20 @@ def main():
 
         if opcao == "d":
             saldo, extrato = depositar(saldo, extrato)
+            
 
         elif opcao == "s":
+            valor = float(input("Por favor, informe o valor para saque: "))
+           
             saldo, extrato, saques = sacar(
                 saldo = saldo, 
+                valor = valor,
                 extrato = extrato, 
                 limite = limite, 
                 saques = saques, 
                 limite_saques = limite_saques,
-                )
-
+            )
+                                
         elif opcao == "e":
             exibir_extrato(saldo, extrato = extrato)
 
