@@ -1,4 +1,4 @@
-def menu(): 
+def exibir_menu(): 
     sumario = """
     ============= MENU =============
     [d] Depositar
@@ -22,6 +22,7 @@ def depositar(saldo, extrato, /):
         print(f"\n✅ Depósito de R$ {valor:.2f} realizado com sucesso!")
     else:
         print("\n❌ Valor inválido!")
+
     return saldo, extrato
 
 
@@ -127,7 +128,7 @@ def main():
     numero_conta = 1
 
     while True:
-        opcao = menu()
+        opcao = exibir_menu()
 
         if opcao == "d":
             saldo, extrato = depositar(saldo, extrato)
